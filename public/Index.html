@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dantas EX Nine – IA Futurista</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { background: #0f0f1f; color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .font-orbitron { font-family: 'Orbitron', monospace; }
+    .pulse-glow { animation: pulseGlow 2s infinite; }
+    @keyframes pulseGlow { 0%,100%{box-shadow:0 0 20px rgba(59,130,246,0.3);}50%{box-shadow:0 0 30px rgba(59,130,246,0.8);} }
+    .chat-box { height: 400px; overflow-y: auto; padding: 1rem; background: linear-gradient(135deg, #111, #1f1f2f); border-radius: 1rem; margin-bottom: 1rem; border: 2px solid #3b82f6; }
+    .user { color: #4ade80; margin-bottom: 0.75rem; font-weight: 600; }
+    .ai { color: #38bdf8; margin-bottom: 0.75rem; font-weight: 600; }
+    input:focus { outline: none; border-color: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+    button { transition: all 0.3s; }
+    button:hover { transform: scale(1.05); box-shadow: 0 0 15px #38bdf8; }
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: rgba(0,0,0,0.6); border-bottom: 2px solid #3b82f6; }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-start min-h-screen p-6">
+
+<header class="w-full py-4 flex justify-between items-center px-6">
+  <div class="flex items-center space-x-4">
+    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center pulse-glow">
+      <span class="font-orbitron text-2xl font-bold">D9</span>
+    </div>
+    <h1 class="font-orbitron text-3xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">DANTAS EX NINE</h1>
+  </div>
+  <nav class="space-x-6 hidden md:flex text-blue-300">
+    <a href="#home" class="hover:text-white transition">Início</a>
+    <a href="#features" class="hover:text-white transition">Recursos</a>
+    <a href="#ai-chat" class="hover:text-white transition">Chat IA</a>
+    <a href="#contact" class="hover:text-white transition">Contato</a>
+  </nav>
+</header>
+
+<section id="home" class="w-full text-center py-16">
+  <h2 class="font-orbitron text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Bem-vindo ao DANTAS EX NINE</h2>
+  <p class="text-gray-300 mb-8 max-w-2xl mx-auto">A próxima geração de inteligência artificial futurista. Converse com a IA para obter respostas avançadas, rápidas e precisas.</p>
+  <button onclick="document.getElementById('ai-chat').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-xl font-bold text-black pulse-glow">Conversar com a IA</button>
+</section>
+
+<section id="features" class="w-full py-16 bg-gray-900/40">
+  <h3 class="text-4xl font-orbitron font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Capacidades Futuristas</h3>
+  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="p-6 bg-gray-800/50 rounded-xl border border-blue-500/40 hover:border-blue-500/60 transition-all">
+      <h4 class="font-orbitron text-xl font-bold mb-3 text-blue-300">Processamento Neural</h4>
+      <p class="text-gray-300">Arquitetura escalável, suporte a chamadas de ferramentas e contexto longo para respostas precisas.</p>
+    </div>
+    <div class="p-6 bg-gray-800/50 rounded-xl border border-purple-500/40 hover:border-purple-500/60 transition-all">
+      <h4 class="font-orbitron text-xl font-bold mb-3 text-purple-300">Aprendizado Contínuo</h4>
+      <p class="text-gray-300">Memória opcional, melhoria iterativa de respostas e capacidade de adaptação em tempo real.</p>
+    </div>
+    <div class="p-6 bg-gray-800/50 rounded-xl border border-pink-500/40 hover:border-pink-500/60 transition-all">
+      <h4 class="font-orbitron text-xl font-bold mb-3 text-pink-300">Interface Intuitiva</h4>
+      <p class="text-gray-300">Chat elegante, mensagens destacadas e streaming em tempo real usando a API da OpenAI.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ai-chat" class="w-full py-16">
+  <h3 class="text-4xl font-orbitron font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Converse com DANTAS EX NINE</h3>
+  <div id="chat" class="chat-box w-full max-w-3xl mx-auto">
+    <p class="ai">IA: Olá! Sou Dantas EX Nine, seu assistente futurista. Pergunte qualquer coisa.</p>
+  </div>
+  <div class="flex w-full max-w-3xl mx-auto">
+    <input type="text" id="input" placeholder="Digite sua mensagem..." class="flex-1 p-3 rounded-l-xl bg-gray-900 border border-gray-700 text-white">
+    <button onclick="sendMessage()" class="bg-gradient-to-r from-blue-600 to-purple-600 px-6 rounded-r-xl font-bold text-black">Enviar</button>
+  </div>
+</section>
+
+<section id="contact" class="w-full py-16 bg-gray-900/40 text-center">
+  <h3 class="text-4xl font-orbitron font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Contato</h3>
+  <p class="text-gray-300 mb-4">Entre em contato para mais informações sobre DANTAS EX NINE</p>
+  <p class="text-blue-300 font-semibold">dantasleo644@gmail.com | 21975431794</p>
+</section>
+
+<footer class="w-full py-8 border-t border-blue-500/40 text-center">
+  <p class="text-gray-400">© 2025 DANTAS EX NINE. Tecnologia de IA Futurista.</p>
+</footer>
+
+<script>
+async function sendMessage() {
+  const input = document.getElementById('input');
+  const chat = document.getElementById('chat');
+  const text = input.value.trim();
+  if (!text) return;
+
+  chat.innerHTML += `<p class="user">Você: ${text}</p>`;
+  input.value = '';
+
+  const aiMessage = document.createElement('p');
+  aiMessage.className = 'ai';
+  aiMessage.textContent = 'IA: ...';
+  chat.appendChild(aiMessage);
+  chat.scrollTop = chat.scrollHeight;
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    const data = await res.json();
+    aiMessage.textContent = "IA: " + (data.reply || "⚠️ Nenhuma resposta");
+    chat.scrollTop = chat.scrollHeight;
+  } catch (err) {
+    aiMessage.textContent = "⚠️ Erro: " + err.message;
+  }
+}
+document.getElementById('input').addEventListener('keypress', e => {
+  if (e.key === 'Enter') sendMessage();
+});
+</script>
+
+</body>
+</html>
