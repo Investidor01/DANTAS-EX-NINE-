@@ -1,0 +1,21 @@
+{
+  "name": "dantas-ex-nine",
+  "version": "1.0.0",
+  "description": "Dantas EX Nine – IA Futurista: chat inteligente integrado com OpenAI.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Dantas",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0"
+  }
+}
